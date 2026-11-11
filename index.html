@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>AS4FS — Funeral Services · Redesign Concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{--bg:#0b0d1a;--bg2:#12152a;--fg:#f3ede2;--mut:#a9a6bd;--gold:#f0c987;--line:rgba(243,237,226,.12)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:300 17px/1.65 Jost,system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;line-height:1.05;margin:0}
+em{font-style:italic;color:var(--gold)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.pb{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold),#fff);z-index:300}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top,0px) + 16px) 28px 16px;transition:.4s}
+nav.s{background:rgba(11,13,26,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:28px;letter-spacing:.2em}
+.logo small{display:block;font:400 9px Jost;letter-spacing:.45em;color:var(--gold);text-transform:uppercase;margin-top:-3px}
+.links{display:flex;gap:28px;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.links a{position:relative;padding:4px 0}
+.links a:after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .5s}
+.links a:hover:after{transform:scaleX(1);transform-origin:left}
+.btn{position:relative;overflow:hidden;display:inline-block;padding:15px 34px;border-radius:99px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;background:linear-gradient(120deg,#f7dca4,#d5a44f);color:#1a1206;border:0;cursor:pointer;font-family:inherit;transition:box-shadow .4s,translate .2s}
+.btn:hover{box-shadow:0 0 44px -4px rgba(240,201,135,.75)}
+.btn.ghost{background:none;color:var(--fg);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--gold)}
+.rp{position:absolute;border-radius:50%;background:rgba(255,255,255,.55);width:10px;height:10px;margin:-5px;pointer-events:none;animation:rp .8s forwards}
+@keyframes rp{to{transform:scale(28);opacity:0}}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:120px 24px 140px;background:radial-gradient(ellipse at 50% 105%,#5a3f6e 0,#2a2650 30%,#161a35 55%,var(--bg) 85%)}
+#cv{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.rays{position:absolute;left:50%;top:70%;width:190vmax;height:190vmax;margin:-95vmax 0 0 -95vmax;background:repeating-conic-gradient(from 0deg,rgba(240,201,135,.11) 0 5deg,transparent 5deg 15deg);-webkit-mask-image:radial-gradient(circle,#000 0,transparent 42%);mask-image:radial-gradient(circle,#000 0,transparent 42%);animation:rot 160s linear infinite}
+.mist{position:absolute;width:80vw;height:42vh;border-radius:50%;background:radial-gradient(closest-side,rgba(190,175,240,.2),transparent);filter:blur(30px);translate:calc(var(--px,0)*46px) calc(var(--py,0)*22px);animation:dr 26s ease-in-out infinite alternate}
+.m1{left:-20%;top:12%}.m2{right:-25%;top:42%;animation-duration:34s;animation-direction:alternate-reverse}
+.hills{position:absolute;left:-3%;bottom:-1px;width:106%;height:22vh;z-index:2;translate:calc(var(--px,0)*-18px) 0}
+.hc{position:relative;z-index:3;max-width:900px}
+.eyebrow{font-size:12px;letter-spacing:.36em;text-transform:uppercase;color:var(--gold);margin:0 0 24px}
+.hero h1{font-size:clamp(46px,8vw,100px)}
+.w{display:inline-block;opacity:0;filter:blur(12px);translate:0 22px;animation:wi 1.3s calc(var(--i)*.13s + .3s) forwards}
+.lead{max-width:540px;margin:28px auto 38px;color:#cfcbe0;font-size:18px}
+.cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hint{margin-top:34px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut);animation:tw 3s infinite}
+.scr{position:absolute;bottom:26px;left:50%;width:1px;height:54px;background:linear-gradient(var(--gold),transparent);z-index:3;animation:sc 2.2s infinite}
+@keyframes wi{to{opacity:1;filter:none;translate:0 0}}
+@keyframes rot{to{transform:rotate(360deg)}}
+@keyframes dr{to{transform:translateX(9vw)}}
+@keyframes tw{50%{opacity:.35}}
+@keyframes sc{0%{scale:1 0;transform-origin:top}50%{scale:1 1;transform-origin:top}51%{transform-origin:bottom}100%{scale:1 0;transform-origin:bottom}}
+section{padding:110px 0}
+.head{text-align:center;margin-bottom:58px}
+.head h2{font-size:clamp(38px,5vw,66px)}
+.head p:not(.eyebrow){color:var(--mut);max-width:540px;margin:16px auto 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:20px}
+.card{position:relative;overflow:hidden;padding:38px 32px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(160deg,var(--bg2),var(--bg));transition:border-color .5s,translate .5s,box-shadow .5s}
+.card:before{content:"";position:absolute;inset:0;background:radial-gradient(360px circle at var(--mx,50%) var(--my,0%),rgba(240,201,135,.17),transparent 60%);opacity:0;transition:opacity .4s}
+.card:hover{border-color:rgba(240,201,135,.5);translate:0 -8px;box-shadow:0 30px 70px -30px rgba(240,201,135,.4)}
+.card:hover:before{opacity:1}
+.ro{width:74px;height:74px;margin-bottom:22px;transition:transform 1.4s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 0 6px rgba(240,201,135,.4))}
+.ro *{fill:none;stroke:var(--gold);stroke-width:1;stroke-dasharray:120}
+.card:hover .ro{transform:rotate(60deg) scale(1.18)}
+.card:hover .ro *{animation:dw 1.5s ease}
+@keyframes dw{from{stroke-dashoffset:120}to{stroke-dashoffset:0}}
+.card h3{font-size:32px;position:relative}
+.card p{color:var(--mut);margin:10px 0 18px;font-size:15px;position:relative}
+.more{position:relative;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:inline-block;transition:translate .4s}
+.card:hover .more{translate:10px 0}
+.memo{background:radial-gradient(ellipse at 50% 0,#2a2650,var(--bg) 70%);border-block:1px solid var(--line);text-align:center}
+.memo h2{font-size:clamp(38px,5vw,66px)}
+.frm{display:flex;gap:10px;max-width:520px;margin:34px auto 12px;flex-wrap:wrap;justify-content:center}
+.frm input{flex:1;min-width:200px;padding:15px 22px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--fg);font:inherit;outline:none;transition:border-color .3s,box-shadow .3s}
+.frm input:focus{border-color:var(--gold);box-shadow:0 0 30px -8px var(--gold)}
+#cnt{color:var(--mut);font-size:14px;margin:0 0 40px}
+.wall{display:flex;flex-wrap:wrap;gap:12px 22px;justify-content:center;min-height:200px}
+.candle{width:100px;display:flex;flex-direction:column;align-items:center;cursor:pointer;transition:translate .4s;animation:pop .8s both}
+.candle:hover{translate:0 -6px}
+.fl{width:17px;height:34px;border-radius:50% 50% 50% 50%/62% 62% 38% 38%;background:radial-gradient(ellipse at 50% 78%,#fff 0,#ffd27a 32%,#ff9d3c 68%,transparent 71%);box-shadow:0 0 44px 16px rgba(255,170,70,.42);transform-origin:50% 100%;opacity:0;scale:.2;transition:opacity 1s,scale 1s}
+.lit .fl{opacity:1;scale:1;animation:fk 1.5s ease-in-out infinite alternate}
+.wk{width:2px;height:10px;background:#3a332b}
+.bd{width:36px;height:96px;border-radius:5px;background:linear-gradient(90deg,#cbbfa6,#fff8e8 45%,#c4b79c);transition:box-shadow 1s}
+.lit .bd{box-shadow:0 0 70px 6px rgba(255,170,70,.2)}
+.candle small{margin-top:10px;font-size:12px;color:var(--mut);letter-spacing:.06em;text-align:center;line-height:1.3}
+.candle:not(.lit) small:after{content:" · tap to light";color:var(--gold)}
+@keyframes fk{0%{transform:rotate(-2deg) scaleY(.94)}50%{transform:rotate(1.5deg) scaleY(1.06)}100%{transform:rotate(-1deg) scaleY(1)}}
+@keyframes pop{from{opacity:0;translate:0 30px}}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:34px}
+.step{position:relative;padding-top:30px}
+.step:before{content:"";position:absolute;top:0;left:0;height:1px;width:0;background:var(--gold);transition:width 1.4s .3s}
+.step.in:before{width:100%}
+.step:after{content:"";position:absolute;top:-4px;left:0;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 16px 3px var(--gold)}
+.step b{font:italic 400 40px 'Cormorant Garamond',serif;color:var(--gold)}
+.step h3{font-size:26px;margin:2px 0 8px}
+.step p{margin:0;color:var(--mut);font-size:15px}
+.tri{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.tr{padding:34px 28px;border:1px solid var(--line);border-radius:22px;background:var(--bg2);transition:.5s;position:relative;overflow:hidden}
+.tr:after{content:"";position:absolute;left:50%;bottom:-70px;width:140px;height:140px;margin-left:-70px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,170,70,.5),transparent);opacity:0;transition:opacity .6s,translate .6s}
+.tr:hover{border-color:rgba(240,201,135,.5)}
+.tr:hover:after{opacity:1;translate:0 -30px}
+.tr small{color:var(--gold);letter-spacing:.2em;text-transform:uppercase;font-size:11px}
+.tr h3{font-size:30px;margin:8px 0 4px}
+.tr p{color:var(--mut);margin:0 0 14px;font-size:15px}
+.cont{text-align:center;padding:100px 24px;border-radius:30px;border:1px solid var(--line);background:radial-gradient(ellipse at 50% 120%,rgba(240,201,135,.22),transparent 65%),var(--bg2)}
+.cont h2{font-size:clamp(38px,5.5vw,70px)}
+.cont p{color:var(--mut);max-width:480px;margin:16px auto 30px}
+.ph{display:block;font:italic 400 clamp(34px,6vw,64px) 'Cormorant Garamond',serif;color:var(--gold);margin-bottom:30px}
+footer{padding:50px 24px calc(env(safe-area-inset-bottom,0px) + 40px);text-align:center;color:var(--mut);font-size:14px}
+.cur{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid var(--gold);border-radius:50%;pointer-events:none;z-index:250;transition:width .35s,height .35s,margin .35s,background .35s}
+.cur.big{width:76px;height:76px;margin:-38px 0 0 -38px;background:rgba(240,201,135,.12)}
+.mo{position:fixed;width:6px;height:6px;border-radius:50%;background:#ffe2a8;box-shadow:0 0 12px 3px rgba(255,200,120,.7);pointer-events:none;z-index:240;animation:mo 1.3s forwards}
+@keyframes mo{from{opacity:.9}to{opacity:0;transform:translate(var(--x),-46px) scale(.2)}}
+.ln{position:fixed;z-index:200;width:34px;height:44px;margin:-22px 0 0 -17px;border-radius:8px 8px 15px 15px;background:radial-gradient(ellipse at 50% 85%,#fff3c8,#ffb45a 55%,#d97a26);box-shadow:0 0 34px 12px rgba(255,170,80,.55);pointer-events:none;animation:up 9s ease-out forwards}
+@keyframes up{0%{opacity:0;transform:translate(0,0) scale(.5)}8%{opacity:1}100%{opacity:0;transform:translate(var(--dx),-115vh) rotate(8deg) scale(1.1)}}
+.rv{opacity:0;translate:0 36px;transition:opacity 1s,translate 1s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;translate:0 0}
+html:not(.js) .rv,html:not(.js) .w{opacity:1;translate:0 0;filter:none}
+@media(max-width:860px){.links{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.w{opacity:1;translate:0 0;filter:none}}
+</style>
+</head>
+<body>
+<div class="pb" id="pb"></div>
+<div class="cur" id="cur"></div>
+<nav id="nav">
+  <a class="logo" href="#top">AS4FS<small>Funeral Services</small></a>
+  <div class="links"><a href="#services">Services</a><a href="#remember">Remembrance</a><a href="#process">Our Process</a><a href="#tributes">Tributes</a><a href="#contact">Contact</a></div>
+  <a class="btn mag" href="#contact" style="padding:11px 22px">Call 24/7</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="rays"></div><div class="mist m1"></div><div class="mist m2"></div>
+  <canvas id="cv"></canvas>
+  <svg class="hills" viewBox="0 0 1440 200" preserveAspectRatio="none"><path d="M0 110C240 30 480 150 720 90S1200 20 1440 100V200H0Z" fill="#131630"/><path d="M0 150C300 90 560 190 820 140S1260 90 1440 150V200H0Z" fill="#0b0d1a"/></svg>
+  <div class="hc">
+    <p class="eyebrow">Compassionate funeral &amp; cremation care</p>
+    <h1><span class="w" style="--i:0">Honoring</span> <span class="w" style="--i:1">a</span> <span class="w" style="--i:2">life,</span> <em class="w" style="--i:3">lighting</em> <em class="w" style="--i:4">the</em> <em class="w" style="--i:5">way</em></h1>
+    <p class="lead rv in" style="transition-delay:1.6s">Gentle guidance, personal service and a warm presence for your family in life’s most difficult moments.</p>
+    <div class="cta"><a class="btn mag" href="#contact">Speak with us</a><a class="btn ghost mag" href="#remember">Light a candle</a></div>
+    <p class="hint">Click anywhere to release a lantern</p>
+  </div>
+  <div class="scr"></div>
+</header>
+
+<section id="services"><div class="wrap">
+  <div class="head rv"><p class="eyebrow">How we can help</p><h2>Services shaped around <em>their story</em></h2><p>Every life is different. So is every farewell.</p></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="memo" id="remember"><div class="wrap">
+  <p class="eyebrow rv">A place to remember</p>
+  <h2 class="rv">Light a candle in <em>their memory</em></h2>
+  <div class="frm rv"><input id="nm" maxlength="26" placeholder="Their name or a short dedication"><button class="btn mag" id="lt">Light a candle</button></div>
+  <p id="cnt"></p>
+  <div class="wall" id="wall"></div>
+</div></section>
+
+<section id="process"><div class="wrap">
+  <div class="head rv"><p class="eyebrow">Our process</p><h2>We walk with you, <em>every step</em></h2></div>
+  <div class="steps">
+    <div class="step rv"><b>01</b><h3>Call anytime</h3><p>We’re available day and night to answer questions and offer comfort.</p></div>
+    <div class="step rv" style="transition-delay:.12s"><b>02</b><h3>Gather &amp; plan</h3><p>We listen to your wishes and explain every option, clearly and kindly.</p></div>
+    <div class="step rv" style="transition-delay:.24s"><b>03</b><h3>Personalize</h3><p>Music, photos, readings and traditions that reflect who they were.</p></div>
+    <div class="step rv" style="transition-delay:.36s"><b>04</b><h3>Celebrate</h3><p>A meaningful service, handled with dignity so you can be present.</p></div>
+    <div class="step rv" style="transition-delay:.48s"><b>05</b><h3>Aftercare</h3><p>Support and resources long after the service has ended.</p></div>
+  </div>
+</div></section>
+
+<section id="tributes" style="padding-top:0"><div class="wrap">
+  <div class="head rv"><p class="eyebrow">Recent tributes · sample content</p><h2>Lives <em>remembered</em></h2></div>
+  <div class="tri">
+    <div class="tr rv"><small>1941 – 2026</small><h3>Eleanor Whitfield</h3><p>A gardener, a storyteller and the heart of her family.</p><a class="more" href="#contact">Leave a condolence →</a></div>
+    <div class="tr rv" style="transition-delay:.12s"><small>1957 – 2026</small><h3>Robert Alvarez</h3><p>A devoted father, friend to all and lover of the open road.</p><a class="more" href="#contact">Leave a condolence →</a></div>
+    <div class="tr rv" style="transition-delay:.24s"><small>1933 – 2026</small><h3>Margaret Chen</h3><p>A teacher whose kindness shaped generations.</p><a class="more" href="#contact">Leave a condolence →</a></div>
+  </div>
+</div></section>
+
+<section id="contact" style="padding-top:0"><div class="wrap">
+  <div class="cont rv"><p class="eyebrow">We’re here, at any hour</p><h2>You don’t have to <em>do this alone</em></h2><p>Call us day or night. There’s no obligation, only someone ready to help.</p><a class="ph" href="tel:5550000000">(555) 000-0000</a><a class="btn mag" href="mailto:info@as4fs.com">Send a message</a></div>
+</div></section>
+
+<footer>AS4FS Funeral Services · 123 Remembrance Lane<br><span style="font-size:12px;opacity:.6">Redesign concept for presentation. Names, contact details and images are placeholders.</span></footer>
+
+<script>
+const $=s=>document.querySelector(s), fine=matchMedia('(pointer:fine)').matches;
+
+/* service cards with generated rosettes */
+function rose(n){let h='';for(let i=0;i<n;i++)h+=`<ellipse cx="50" cy="28" rx="9" ry="22" transform="rotate(${i*360/n} 50 50)"/>`;return `<svg class="ro" viewBox="0 0 100 100">${h}<circle cx="50" cy="50" r="4"/></svg>`}
+const sv=[['Traditional Funeral','A dignified service with visitation, ceremony and committal, shaped by your family’s faith and wishes.',6],['Cremation Services','Simple or ceremonial, with thoughtful options for memorialization and keepsakes.',8],['Celebration of Life','Music, stories and photographs that reflect who they truly were.',5],['Pre-Planning','Record your wishes today so your family is spared difficult decisions later.',7],['Veterans Honors','Respectful military honors for those who served.',4],['Grief Support','Guidance, resources and a listening ear long after the service.',9]];
+$('#grid').innerHTML=sv.map((s,i)=>`<a class="card rv" style="transition-delay:${(i%3)*.1}s,${(i%3)*.1}s,0s,0s,0s" href="#contact">${rose(s[2])}<h3>${s[0]}</h3><p>${s[1]}</p><span class="more">Learn more →</span></a>`).join('');
+document.querySelectorAll('.card').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')}));
+
+/* candles */
+const wall=$('#wall');
+function count(){$('#cnt').textContent=document.querySelectorAll('.candle.lit').length+' candles are burning tonight'}
+function candle(name,lit){const d=document.createElement('div');d.className='candle'+(lit?' lit':'');d.innerHTML=`<i class="fl"></i><b class="wk"></b><div class="bd"></div><small></small>`;d.querySelector('small').textContent=name;
+  d.addEventListener('click',e=>{e.stopPropagation();if(!d.classList.contains('lit')){d.classList.add('lit');const r=d.getBoundingClientRect();lantern(r.left+r.width/2,r.top+10);count()}});
+  return d}
+['Forever in our hearts','With love, always','Until we meet again'].forEach(n=>wall.appendChild(candle(n,1)));
+['For Grandpa Joe','In loving memory'].forEach(n=>wall.appendChild(candle(n,0)));
+count();
+function light(){const i=$('#nm'),v=i.value.trim()||'In loving memory',c=candle(v,0);wall.prepend(c);i.value='';
+  setTimeout(()=>{c.classList.add('lit');const r=c.getBoundingClientRect();lantern(r.left+r.width/2,r.top+10);count()},350)}
+$('#lt').addEventListener('click',light);$('#nm').addEventListener('keydown',e=>{if(e.key==='Enter')light()});
+
+/* lanterns */
+function lantern(x,y){const l=document.createElement('div');l.className='ln';l.style.left=x+'px';l.style.top=y+'px';l.style.setProperty('--dx',(Math.random()*160-80)+'px');document.body.appendChild(l);setTimeout(()=>l.remove(),9000)}
+let lt=0;addEventListener('click',e=>{if(e.target.closest('input,.candle')||Date.now()-lt<250)return;lt=Date.now();lantern(e.clientX,e.clientY);burst(e)});
+
+/* buttons: magnetic + ripple */
+document.querySelectorAll('.mag').forEach(b=>{
+  b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.translate=(e.clientX-r.left-r.width/2)*.22+'px '+(e.clientY-r.top-r.height/2)*.3+'px'});
+  b.addEventListener('pointerleave',()=>b.style.translate='');
+  b.addEventListener('click',e=>{const r=b.getBoundingClientRect(),s=document.createElement('span');s.className='rp';s.style.left=e.clientX-r.left+'px';s.style.top=e.clientY-r.top+'px';b.appendChild(s);setTimeout(()=>s.remove(),800)})});
+
+/* cursor ring + light trail */
+if(fine){const cur=$('#cur');let x=0,y=0,tx=0,ty=0,tm=0;
+  addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;const n=Date.now();if(n-tm>70){tm=n;const m=document.createElement('i');m.className='mo';m.style.left=tx+'px';m.style.top=ty+'px';m.style.setProperty('--x',(Math.random()*30-15)+'px');document.body.appendChild(m);setTimeout(()=>m.remove(),1300)}
+    cur.classList.toggle('big',!!e.target.closest('a,button,.candle,.card'))});
+  (function f(){x+=(tx-x)*.18;y+=(ty-y)*.18;cur.style.transform=`translate(${x}px,${y}px)`;requestAnimationFrame(f)})()}else $('#cur').remove();
+
+/* hero: parallax + floating light particles */
+const hero=$('.hero'),cv=$('#cv'),cx=cv.getContext('2d');let W,H,ps=[],mx=-999,my=-999,vis=true;
+function rs(){W=cv.width=hero.offsetWidth;H=cv.height=hero.offsetHeight}rs();addEventListener('resize',rs);
+const mk=(x,y,b)=>({x:x??Math.random()*W,y:y??Math.random()*H,r:Math.random()*2+.6,vx:b?(Math.random()-.5)*5:(Math.random()-.5)*.3,vy:b?(Math.random()-.5)*5-1:-(Math.random()*.45+.12),a:Math.random()*6.28,l:b?1:0});
+for(let i=0;i<90;i++)ps.push(mk());
+hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;hero.style.setProperty('--px',(mx/W-.5)*2);hero.style.setProperty('--py',(my/H-.5)*2)});
+hero.addEventListener('pointerleave',()=>{mx=my=-999});
+function burst(e){const r=hero.getBoundingClientRect();if(e.clientY<r.top||e.clientY>r.bottom)return;for(let i=0;i<26;i++)ps.push(mk(e.clientX-r.left,e.clientY-r.top,1))}
+new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(hero);
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches)(function draw(){requestAnimationFrame(draw);if(!vis)return;
+  cx.clearRect(0,0,W,H);cx.globalCompositeOperation='lighter';
+  ps=ps.filter(p=>!p.l||p.l>0);
+  for(const p of ps){p.a+=.02;p.x+=p.vx+Math.sin(p.a)*.25;p.y+=p.vy;
+    const dx=p.x-mx,dy=p.y-my,d=Math.hypot(dx,dy);if(d<130&&d>0){p.x+=dx/d*1.4;p.y+=dy/d*1.4}
+    let al=.35+.35*Math.sin(p.a*2);
+    if(p.l){p.l-=.014;p.vx*=.97;p.vy*=.97;al=p.l}
+    else{if(p.y<-10){p.y=H+10;p.x=Math.random()*W}if(p.x<-10)p.x=W+10;if(p.x>W+10)p.x=-10}
+    cx.fillStyle=`rgba(255,214,140,${al*.18})`;cx.beginPath();cx.arc(p.x,p.y,p.r*5,0,6.283);cx.fill();
+    cx.fillStyle=`rgba(255,240,200,${Math.max(al,0)})`;cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.283);cx.fill()}})();
+
+/* nav, progress, reveal */
+addEventListener('scroll',()=>{$('#nav').classList.toggle('s',scrollY>40);$('#pb').style.width=scrollY/(document.body.scrollHeight-innerHeight)*100+'%'},{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
